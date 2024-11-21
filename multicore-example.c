@@ -5,7 +5,7 @@
 #define LED_PINB 4
 
 void core1_entry() {
-    while(1) {
+    while(true) {
         printf("Hello Core1\n");
         gpio_put(LED_PINB, 0);
         sleep_ms(1000);
@@ -24,7 +24,7 @@ int main() {
     gpio_set_dir(LED_PINA, GPIO_OUT);
     gpio_set_dir(LED_PINB, GPIO_OUT);
 
-    while(1) {
+    while(true) {
         printf("Hello Core0\n");
         gpio_put(LED_PINA, 0);
         sleep_ms(1000);

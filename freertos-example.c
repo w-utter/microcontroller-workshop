@@ -12,8 +12,7 @@ struct led_task_arg {
     int delay;
 };
 
-void led_task(void *p)
-{
+void led_task(void *p) {
     struct led_task_arg *a = (struct led_task_arg *)p;
 
     gpio_init(a->gpio);
@@ -26,8 +25,7 @@ void led_task(void *p)
     }
 }
 
-int main()
-{
+int main() {
     stdio_init_all();
 
     printf("Start LED blink\n");

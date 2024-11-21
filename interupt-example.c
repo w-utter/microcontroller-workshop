@@ -34,7 +34,7 @@ int main() {
     gpio_put(LED_PIN, 0);
 
     
-    while (1)
+    while (true)
         printf("Hello GPIO IRQ\n");
 }
 
