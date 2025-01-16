@@ -4,7 +4,7 @@ This repository contains not fully setup code environment for use during the wor
 For complete examples see my matching repository at https://github.com/misskacie/simple-pico-examples
 which has fully setup CMAKE files.
 
-### Setting up Pico SDK Workspace
+### Building & Flashing with the Pico SDK
 In order to build the project you will need to run the following commands
 
 - `cd [PATH_TO_REPO]`
@@ -12,11 +12,14 @@ In order to build the project you will need to run the following commands
 - `cd build`
 - `cmake ..; make`
 
-There will now be a uf2 file within the build folder that can be flashed to the pico.
+There will now be a uf2 file within `[PATH_TO_REPO]/build` that can be flashed to the pico.
 
-To flash the uf2 file to the pico you can hold down the boot button on the pico and then plug it in which will mount it like a storage device, then you copy the uf2 file onto the mounted storage device. Alternatively you can use pico-tool from the Raspberry Pi Foundation. 
+To flash the compiled uf2 file, first plug in and hold the boot button. This will mount it like a storage device. There are then 2 options to flash the uf2 file:
 
-You can run `cmake..; make; sudo picotool load -F [filetoflash].uf2; sudo picotool reboot` from the build folder to automatically build and copy it over, if it fails you will need to manually put it into bootsel mode as above.
+- copy the file into the newly mounted device.
+- run `sudo picotool load -F [FILE_TO_FLASH].uf2; sudo picotool reboot` within `[PATH_TO_REPO]/build`
+
+NOTE: using picotool automatically puts the device into bootsel mode so the boot button does not typically need to be held down unless there are issues flashing the device.
 
 ### Installing picotool
 First do
@@ -52,4 +55,3 @@ The files `pico_sdk_import.cmake` and `FreeRTOS_import.cmake` depend on `FetchCo
 
 ### Attribution
 Some examples taken or adapted from https://github.com/raspberrypi/pico-examples
-
